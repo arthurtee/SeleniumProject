@@ -1,6 +1,8 @@
 # SeleniumProject
 
-To automate the below scenario:
+This is a selenium project completed by me with [ChatGPT](https://chat.openai.com/) using [Page Object Design Pattern](https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/).
+
+Below are the automated scenarios located [here](src/main/java/Tests/TokopediaTest.java):
 
 1) Go to tokopedia.com, search "iphone 14 pro".
 2) Filter the price with min. 100.000, max 30.000.000, filter only from the “Official Store”, sort from the “Harga Terendah”.
