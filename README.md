@@ -14,4 +14,4 @@ Below are the automated scenarios:
 * Maven as a build tool. 
 * Run cmd to setup: `mvn clean install`
 * Run all tests: `mvn test`
-* Run specific test: `mvn -Dtest=TokopediaTest#testPrintFilteredProducts test`
+* Run specific test: `mvn -Dtest=TokopediaTest#testPrintFilteredProductsNotEmpty test`

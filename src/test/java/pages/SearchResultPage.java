@@ -12,22 +12,23 @@ import org.openqa.selenium.WebElement;
 import testdata.Item;
 
 
-    
-public class SearchResultPage {
-    private WebDriver driver;
-    private By minPriceFilterInput = By.cssSelector("input[data-testid=iptSRPMinPriceFilter]");
-    private By maxPriceFilterInput = By.cssSelector("input[data-testid=iptSRPMaxPriceFilter]");
-    private By mallFilter = By.cssSelector("input[value='Mall']+span");
-    private By sortSelectButton = By.cssSelector("button[data-unify=Select]");
-    private By lowestPriceOption = By.cssSelector("button[data-item-text='Harga Terendah']");
-    private By paginationButton(String pageNumber) {
-        return By.cssSelector("button[aria-label='Laman " + pageNumber + "']");
-    }
-    private By itemDetail = By.xpath("//div[@class='y-oybT3IAd310DVdH3OwVg== ']");
+public class SearchResultPage extends BasePage {
+    private final By minPriceFilterInput = By.cssSelector("input[data-testid=iptSRPMinPriceFilter]");
+    private final By maxPriceFilterInput = By.cssSelector("input[data-testid=iptSRPMaxPriceFilter]");
+    private final By mallFilter = By.cssSelector("input[value='Mall']+span");
+    private final By sortSelectButton = By.cssSelector("button[data-unify=Select]");
+    private final By lowestPriceOption = By.cssSelector("button[data-item-text='Harga Terendah']");
+    private final By itemDetail = By.xpath("//div[@class='y-oybT3IAd310DVdH3OwVg== ']");
 
 
+    // Constructor
     public SearchResultPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);  // Call the constructor of BasePage
+    }
+
+    public void load() {
+        // In this case, we assume the search result page is already loaded by the time
+        // this object is instantiated (after performing the search in HomePage).
     }
 
     public void setMinPriceFilter(String minPrice) {
@@ -45,10 +46,6 @@ public class SearchResultPage {
     public void sortByLowestPrice() {
         driver.findElement(sortSelectButton).click();
         driver.findElement(lowestPriceOption).click();
-    }
-
-    public void goToPage(int pageNumber) {
-        driver.findElement(paginationButton(String.valueOf(pageNumber))).click();
     }
 
     public List<testdata.Item> getAllItemDetails() {
